@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Exam Questions to Quizizz</title>
+  <style>
+    body { width: 320px; margin: 0; padding: 14px; font: 13px/1.4 system-ui, sans-serif; color: #1f2937; }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    label { display: block; margin: 6px 0; cursor: pointer; }
+    button { width: 100%; margin-top: 10px; padding: 9px; font-size: 14px; border: 0; border-radius: 6px;
+             background: #2563eb; color: #fff; cursor: pointer; }
+    button:disabled { background: #93a3c7; cursor: default; }
+    #status { margin-top: 10px; white-space: pre-wrap; min-height: 1.4em; }
+    #status.err { color: #b91c1c; }
+    small { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h1>Exam Questions to Quizizz</h1>
+  <label><input type="checkbox" id="optXlsx" checked> Quizizz import (.xlsx)</label>
+  <label><input type="checkbox" id="optTxt" checked> Plain text with answers (.txt)</label>
+  <label><input type="checkbox" id="optImages"> Include image questions <small>(adds Image Link)</small></label>
+  <button id="run">Scrape this page</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
