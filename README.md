@@ -1,3 +1,5 @@
+![IT-Exam Scraper Banner](assets/IT-Exam_Scraper_Banner.png)
+
 # ITExamAnswer Scraper Extension
 
 A lightweight browser extension that scrapes exam question-and-answer sets directly from ITExamAnswer pages and formats them into `.xlsx` spreadsheets (ready for Wayground/Quizizz import) or `.txt` study summaries.
