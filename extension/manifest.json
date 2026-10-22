@@ -3,9 +3,22 @@
   "name": "Exam Questions to Quizizz",
   "version": "1.0.0",
   "description": "Extracts multiple-choice questions with marked correct answers from the current exam-answers page and exports them as .txt and a Quizizz import .xlsx.",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "icons": {
+    "16": "icons/IT-Exam_Scraper_16x16.png",
+    "48": "icons/IT-Exam_Scraper_48x48.png",
+    "128": "icons/IT-Exam_Scraper_128x128.png"
+  },
   "action": {
     "default_title": "Scrape exam questions",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/IT-Exam_Scraper_16x16.png",
+      "48": "icons/IT-Exam_Scraper_48x48.png",
+      "128": "icons/IT-Exam_Scraper_128x128.png"
+    }
   }
 }

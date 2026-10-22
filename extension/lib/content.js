@@ -92,6 +92,7 @@
       const files = [];
       let dropped = 0;
       let truncated = 0;
+      let dupOptionRows = [];
 
       if (opts.downloadTxt) {
         const name = slug + '_questions_with_answers.txt';
@@ -103,6 +104,7 @@
         const q = ExamScraperCore.toQuizizzRows(cards, 45);
         dropped = q.dropped;
         truncated = q.truncated;
+        dupOptionRows = q.dupOptionRows;
         quizizzCount = q.rows.length;
         const name = 'quizizz_import_' + slug + '.xlsx';
         downloadBlob(new Blob([buildXlsxBytes(q.rows, ExamScraperCore.QUIZIZZ_COLUMNS)], { type: XLSX_MIME }), name);
@@ -111,7 +113,7 @@
 
       toast('Done: ' + cards.length + ' questions');
       setTimeout(() => document.getElementById('__exam_scraper_toast')?.remove(), 4000);
-      return { ok: true, count: cards.length, quizizzCount, dropped, truncated, imageStats, stats, files };
+      return { ok: true, count: cards.length, quizizzCount, dropped, truncated, dupOptionRows, imageStats, stats, files };
     } catch (err) {
       toast('Error: ' + (err && err.message));
       return { ok: false, count: 0, message: String(err && err.stack || err) };

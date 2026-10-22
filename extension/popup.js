@@ -55,6 +55,9 @@ $('run').addEventListener('click', async () => {
     }
     if (s.withExplanation) lines.push(s.withExplanation + ' have an Answer explanation.');
     if (result.truncated) lines.push(result.truncated + ' had more than 5 options; extras were cut (Quizizz limit).');
+    if (result.dupOptionRows && result.dupOptionRows.length) {
+      lines.push('Check spreadsheet row(s) ' + result.dupOptionRows.join(', ') + ': two options have identical text (probably a typo on the source page).');
+    }
     if (result.dropped) lines.push('Skipped ' + result.dropped + ' with correct answers beyond option 5 (Quizizz limit).');
     if (result.files && result.files.length) lines.push('Downloaded: ' + result.files.join(', '));
     setStatus(lines.join('\n'));

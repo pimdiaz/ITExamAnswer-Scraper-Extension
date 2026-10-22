@@ -357,7 +357,7 @@
   ];
 
   /**
-   * @returns {{rows: object[], dropped: number, truncated: number}}
+   * @returns {{rows: object[], dropped: number, truncated: number, dupOptionRows: number[]}}
    * Quizizz only has 5 option columns. A question whose correct answer would fall
    * outside them is dropped (and counted); one with extra wrong options just loses
    * the extras (counted in `truncated`).
@@ -366,6 +366,7 @@
     const rows = [];
     let dropped = 0;
     let truncated = 0;
+    const dupOptionRows = []; // spreadsheet row numbers (header = row 1) with a repeated option
     for (const c of cards) {
       if (c.choices.length < 2) continue;
       const correctIdx = [];
@@ -387,9 +388,11 @@
       row['Time in seconds'] = timeSeconds || 45;
       row['Image Link'] = c.imageUrl || '';
       row['Answer explanation'] = c.explanation || '';
+      const shown = c.choices.slice(0, 5).map((ch) => ch.text.trim().toLowerCase());
+      if (new Set(shown).size < shown.length) dupOptionRows.push(rows.length + 2);
       rows.push(row);
     }
-    return { rows, dropped, truncated };
+    return { rows, dropped, truncated, dupOptionRows };
   }
 
   const api = {
