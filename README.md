@@ -1,4 +1,4 @@
-![IT-Exam Scraper Banner](assets/IT-Exam_Scraper_Banner.png)
+![IT-Exam Scraper Banner](IT-Exam_Scraper_Banner.png)
 
 # ITExamAnswer Scraper Extension
 
